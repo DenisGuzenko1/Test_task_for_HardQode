@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<center>
+    <h1>Продукты</h1>
+    <div class="container py-5">
+        <div class="row">
+            {% for product in products %}
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card h-100">
+                    <p class="aligncenter">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <h5 class="card-title">{{ product.description }}</h5>
+                        <h5 class="card-title">{{ product.price }}</h5>
+                    </div>
+
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</center>
+<hr>
+<center>
+    <h1>Уроки</h1>
+    <div class="container py-5">
+        <div class="row">
+            {% for lesson in lessons %}
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card h-100">
+                    <p class="aligncenter">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ lesson.title }}</h5>
+                        <h5 class="card-title">{{ lesson.video_url}}</h5>
+                        <h5 class="card-title">{{ lesson.duration_seconds }}</h5>
+                    </div>
+
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</center>
+<hr>
+<center>
+    <h1>Просмотр уроков</h1>
+    <div class="container py-5">
+        <div class="row">
+            {% for lesson_view in lessons_view %}
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card h-100">
+                    <p class="aligncenter">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ lesson_view.user }}</h5>
+                        <h5 class="card-title">{{ lesson_view.lesson }}</h5>
+                        <h5 class="card-title">{{ lesson_view.view_time_seconds }}</h5>
+                        <h5 class="card-title">{{ lesson_view.status }}</h5>
+                    </div>
+
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</center>
+{% endblock %}
